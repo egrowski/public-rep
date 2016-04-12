@@ -1,0 +1,5 @@
+W tym folderze nale¿y umieszczaæ zadania wykonane na laboratorium o odpowiednim numerze oraz zadania domowe.
+Foldery nale¿y nazywaæ:
+"praca na zajêciach"
+"zadanie domowe"
+Lub w inny jasny i czytelny sposób.
