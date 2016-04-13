@@ -87,6 +87,7 @@ namespace BartoszEgrowskiPD1
                     break;
             }
             resultValue = double.Parse(textBoxResult.Text);
+            operationPerformed = "";
             labelResult.Text = "";
         }
     }
