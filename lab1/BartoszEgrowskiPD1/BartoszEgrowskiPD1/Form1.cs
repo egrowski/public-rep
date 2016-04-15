@@ -33,6 +33,13 @@ namespace BartoszEgrowskiPD1
                 if (!textBoxResult.Text.Contains(","))
                     textBoxResult.Text = textBoxResult.Text + button.Text;
             }
+            else if (button.Text == "/")
+            {
+                if (button.Text == "0")
+                {
+                    MessageBox.Show("Nie dzielimy przez 0!");
+                }
+            }
             else
             textBoxResult.Text = textBoxResult.Text + button.Text;          
         }
@@ -77,7 +84,13 @@ namespace BartoszEgrowskiPD1
                 case "*":
                     textBoxResult.Text = (resultValue * double.Parse(textBoxResult.Text)).ToString();
                     break;
-                case "/":
+                case "/":     
+                    if (textBoxResult.Text == "0")
+                    {
+                        DivideByZero divideByZero = new DivideByZero();
+                        divideByZero.Show();
+                    }
+                    else
                     textBoxResult.Text = (resultValue / double.Parse(textBoxResult.Text)).ToString();
                     break;
                 case "%":
