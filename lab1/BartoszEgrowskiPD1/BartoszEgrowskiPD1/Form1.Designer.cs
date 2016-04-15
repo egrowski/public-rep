@@ -49,6 +49,7 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonComma = new System.Windows.Forms.Button();
             this.labelResult = new System.Windows.Forms.Label();
+            this.buttonNegative = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonOne
@@ -61,6 +62,7 @@
             this.buttonOne.Text = "1";
             this.buttonOne.UseVisualStyleBackColor = true;
             this.buttonOne.Click += new System.EventHandler(this.button_Click);
+            this.buttonOne.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // buttonTwo
             // 
@@ -218,9 +220,9 @@
             // buttonEqual
             // 
             this.buttonEqual.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEqual.Location = new System.Drawing.Point(236, 156);
+            this.buttonEqual.Location = new System.Drawing.Point(236, 202);
             this.buttonEqual.Name = "buttonEqual";
-            this.buttonEqual.Size = new System.Drawing.Size(49, 86);
+            this.buttonEqual.Size = new System.Drawing.Size(49, 40);
             this.buttonEqual.TabIndex = 17;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
@@ -270,11 +272,23 @@
             this.labelResult.Size = new System.Drawing.Size(0, 18);
             this.labelResult.TabIndex = 25;
             // 
+            // buttonNegative
+            // 
+            this.buttonNegative.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNegative.Location = new System.Drawing.Point(236, 156);
+            this.buttonNegative.Name = "buttonNegative";
+            this.buttonNegative.Size = new System.Drawing.Size(49, 40);
+            this.buttonNegative.TabIndex = 26;
+            this.buttonNegative.Text = "+/-";
+            this.buttonNegative.UseVisualStyleBackColor = true;
+            this.buttonNegative.Click += new System.EventHandler(this.buttonNegative_Click);
+            // 
             // FormCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(303, 255);
+            this.Controls.Add(this.buttonNegative);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonComma);
             this.Controls.Add(this.buttonClear);
@@ -328,6 +342,7 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonComma;
         private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.Button buttonNegative;
     }
 }
 
