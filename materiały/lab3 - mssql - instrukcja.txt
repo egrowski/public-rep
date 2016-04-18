@@ -1,0 +1,12 @@
+Warunkiem uczestnictwa w Laboratorium nr 3 jest instalacja niezbêdnych narzêdzi Microsoft SQL Server Management Studio. Link do pobrania:
+https://www.microsoft.com/en-us/download/details.aspx?id=42299
+
+Nale¿y pobraæ i zainstalowaæ (w podanej kolejnoœci) dwa pliki (w odpowiedniej wersji):
+
+Microsoft SQL Server (Express 64BIT\SQLEXPR) i niezbêdn¹ do zarz¹dzania aplikacjê SQL Server Management Studio(MgmtStudio 64BIT\SQLManagementStudio).
+
+Kroki instalacji s¹ podobne do tych przedstawionych tu:
+
+http://lukaszkosiorowski.pl/programowanie/net/asp-mvc/instalacja-sql-server-2014/
+
+Po instalacji bardzo proszê o wys³anie mi zrzutu ekranu pocz¹tkowego widoku po uruchomieniu SQL Server Management Studio. Powinien byæ na nim widoczny Serwer postawiony po instalacji pierwszego pakietu. Wys³anie mi zrzutów ekranu pozwoli upewniæ siê, ¿e na zajêciach od pocz¹tku wszyscy bêd¹ gotowi do dalszej pracy.
