@@ -13,12 +13,12 @@ namespace BartoszEgrowskiPD2
 
     public partial class AddData : Form
     {
-        private Book _currentBook { get; set; }
+        private Book currentBook { get; set; }
         private FormMain _parent { get; set; }
         public AddData(FormMain parent)
         {
             _parent = parent;
-            _currentBook = new Book();
+            currentBook = new Book();
             InitializeComponent();
         }
 
@@ -29,11 +29,12 @@ namespace BartoszEgrowskiPD2
 
         private void buttonAccept_Click(object sender, EventArgs e)
         {
-            _currentBook.author = textBoxAuthor.Text;
-            _currentBook.description = textBoxDescription.Text;
-            _currentBook.title = textBoxTitle.Text;
+            currentBook.author = textBoxAuthor.Text;
+            currentBook.description = textBoxDescription.Text;
+            currentBook.title = textBoxTitle.Text;
+            currentBook.rating = comboBoxRating.Text;
 
-            _parent.AddBook(_currentBook);
+            _parent.AddBook(currentBook);
             Close();
         }
 
@@ -42,8 +43,7 @@ namespace BartoszEgrowskiPD2
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _currentBook.CoverPath = openFileDialog.FileName;  
-              
+                currentBook.CoverPath = openFileDialog.FileName;                
             }
         }
     }

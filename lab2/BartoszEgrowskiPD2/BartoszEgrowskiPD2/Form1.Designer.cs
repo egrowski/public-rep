@@ -70,7 +70,7 @@
             this.dataGridViewListOfBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewListOfBooks.Size = new System.Drawing.Size(333, 266);
             this.dataGridViewListOfBooks.TabIndex = 2;
-            this.dataGridViewListOfBooks.SelectionChanged += new System.EventHandler(this.dataGridViewListOfBooks_SelectionChanged);
+            this.dataGridViewListOfBooks.SelectionChanged += new System.EventHandler(this.dataGridViewListOfBooksSelectionChanged);
             // 
             // textBoxDescription
             // 

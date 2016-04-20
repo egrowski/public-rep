@@ -13,10 +13,10 @@ namespace BartoszEgrowskiPD2
 {
     public partial class FormMain : Form
     {
-        private List<Book> _listOfBooks { get; set; }
+        private BindingList<Book> listOfBooks { get; set; }
         public FormMain()
         {
-            _listOfBooks = new List<Book>();
+            listOfBooks = new BindingList<Book>();
             InitializeComponent();
 
             dataGridViewListOfBooks.DataSource = null;
@@ -34,6 +34,7 @@ namespace BartoszEgrowskiPD2
             {
                 dataGridViewListOfBooks.Rows.RemoveAt(item.Index);
             }
+            //pictureBoxCover = null;
         }
 
         private void toolStripMenuItemSave_Click(object sender, EventArgs e)
@@ -72,20 +73,20 @@ namespace BartoszEgrowskiPD2
 
         public void AddBook(Book book)
         {
-            _listOfBooks.Add(book);
+            listOfBooks.Add(book);
             dataGridViewListOfBooks.DataSource = null;
-            dataGridViewListOfBooks.DataSource = _listOfBooks;
+            dataGridViewListOfBooks.DataSource = listOfBooks;
         }
 
-        private void dataGridViewListOfBooks_SelectionChanged(object sender, EventArgs e)
+        private void dataGridViewListOfBooksSelectionChanged(object sender, EventArgs e)
         {
             var grid = sender as DataGridView;
             if (grid.SelectedRows.Count > 0)
             {
                 var idx = grid.CurrentRow.Index;
-                if (idx < _listOfBooks.Count)
+                if (idx < listOfBooks.Count)
                 {
-                    var currentBook = _listOfBooks[idx];
+                    var currentBook = listOfBooks[idx];
 
                     pictureBoxCover.ImageLocation = currentBook.CoverPath;
                     textBoxDescription.Text = currentBook.description;
