@@ -1,0 +1,3 @@
+Mag|John Fowles|10|
+Valis|Philip Dick|9.0|
+Proces|Franz Kafka|9.0|
