@@ -67,9 +67,10 @@
             this.dataGridViewListOfBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListOfBooks.Location = new System.Drawing.Point(92, 27);
             this.dataGridViewListOfBooks.Name = "dataGridViewListOfBooks";
+            this.dataGridViewListOfBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewListOfBooks.Size = new System.Drawing.Size(333, 266);
             this.dataGridViewListOfBooks.TabIndex = 2;
-          
+            this.dataGridViewListOfBooks.SelectionChanged += new System.EventHandler(this.dataGridViewListOfBooks_SelectionChanged);
             // 
             // textBoxDescription
             // 
@@ -111,14 +112,14 @@
             // toolStripMenuItemSave
             // 
             this.toolStripMenuItemSave.Name = "toolStripMenuItemSave";
-            this.toolStripMenuItemSave.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemSave.Size = new System.Drawing.Size(115, 22);
             this.toolStripMenuItemSave.Text = "Zapisz";
             this.toolStripMenuItemSave.Click += new System.EventHandler(this.toolStripMenuItemSave_Click);
             // 
             // toolStripMenuItemLoad
             // 
             this.toolStripMenuItemLoad.Name = "toolStripMenuItemLoad";
-            this.toolStripMenuItemLoad.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemLoad.Size = new System.Drawing.Size(115, 22);
             this.toolStripMenuItemLoad.Text = "Wczytaj";
             this.toolStripMenuItemLoad.Click += new System.EventHandler(this.toolStripMenuItemLoad_Click);
             // 

@@ -14,6 +14,7 @@ namespace BartoszEgrowskiPD2
         public string author { get; set; }
         public string rating { get; set; }
         public string description { get; set; }
+        public string CoverPath { get; set; }
 
         public Book (string title, string author, string rating)
         {

@@ -13,14 +13,13 @@ namespace BartoszEgrowskiPD2
 {
     public partial class FormMain : Form
     {
-        public BindingList<Book> listOfBooks = new BindingList<Book>();
+        private List<Book> _listOfBooks { get; set; }
         public FormMain()
         {
-            BindingList<Book> listOfBooks = new BindingList<Book>();
+            _listOfBooks = new List<Book>();
             InitializeComponent();
 
             dataGridViewListOfBooks.DataSource = null;
-            dataGridViewListOfBooks.DataSource = listOfBooks;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -68,6 +67,30 @@ namespace BartoszEgrowskiPD2
             catch
             {
                 MessageBox.Show("Nie znaleziono pliku!");
+            }
+        }
+
+        public void AddBook(Book book)
+        {
+            _listOfBooks.Add(book);
+            dataGridViewListOfBooks.DataSource = null;
+            dataGridViewListOfBooks.DataSource = _listOfBooks;
+        }
+
+        private void dataGridViewListOfBooks_SelectionChanged(object sender, EventArgs e)
+        {
+            var grid = sender as DataGridView;
+            if (grid.SelectedRows.Count > 0)
+            {
+                var idx = grid.CurrentRow.Index;
+                if (idx < _listOfBooks.Count)
+                {
+                    var currentBook = _listOfBooks[idx];
+
+                    pictureBoxCover.ImageLocation = currentBook.CoverPath;
+                    textBoxDescription.Text = currentBook.description;
+                }
+                
             }
         }
     }
