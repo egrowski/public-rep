@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BartoszEgrowskiLab2
 {
-    class Person
+    public class Person
     {
         public List<Grade> listOfGrades = new List<Grade>();
         public string surname { get; set; }

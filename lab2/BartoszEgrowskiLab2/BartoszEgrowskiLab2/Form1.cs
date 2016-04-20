@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace BartoszEgrowskiLab2
 {
     public partial class FormMain : Form
     {
-        List<Person> listOfPeople = new List<Person>();
+        public List<Person> listOfPeople { get; set; }
         List<Grade> listOfGrades = new List<Grade>();
         public FormMain()
         {
@@ -20,11 +21,10 @@ namespace BartoszEgrowskiLab2
             Person person = new Person();
             person.name = "Bartosz";
             person.surname = "Egrowski";
-            person.age = 25;
+            person.age = 28;
             SuperPerson superperson = new SuperPerson("Michal", "Kowalski", 35, 6);
-            //MessageBox.Show(superperson.text);
 
-            
+            listOfPeople = new List<Person>();
             listOfPeople.Add(person);
             listOfPeople.Add(new Person("Marcin", "Nowak", 26));
             listOfPeople.Add(new Person("Wojciech", "Szczepinski", 65));
@@ -34,36 +34,63 @@ namespace BartoszEgrowskiLab2
 
             dataGridViewListOfPeople.DataSource = null;
             dataGridViewListOfPeople.DataSource = listOfPeople;
-        }
 
-        private void buttonShow_Click(object sender, EventArgs e)
-        {
-            dataGridViewListOfPeople.DataSource = null;
-            dataGridViewListOfPeople.DataSource = listOfPeople;
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            listOfPeople.Add(new Person(textBoxName.Text, textBoxSurname.Text, int.Parse(textBoxAge.Text)));
+          //  dataGridViewGrades.DataSource = null;
+          //  dataGridViewGrades.DataSource = listOfGrades;
         }
 
         private void buttonAddGrade_Click(object sender, EventArgs e)
         {
-            if (dataGridViewListOfPeople.SelectedRows.Count > 0)
-            {
-                listOfPeople[dataGridViewListOfPeople.SelectedRows[0].Index].listOfGrades.Add(new Grade(5, "piątka"));
+             if (dataGridViewListOfPeople.SelectedRows.Count > 0)
+             {
+                 listOfPeople[dataGridViewListOfPeople.SelectedRows[0].Index].listOfGrades.Add(new Grade(double.Parse(textBoxGradeValue.Text), textBoxGradeName.Text));
+                dataGridViewGrades.DataSource = null;
+                dataGridViewGrades.DataSource = listOfPeople[dataGridViewListOfPeople.SelectedRows[0].Index].listOfGrades;
             }
-            else
-                MessageBox.Show("wybierz kogoś z listy");
+             else
+                 MessageBox.Show("wybierz kogoś z listy");
         }
 
-        private void buttonShowGrade_Click(object sender, EventArgs e)
+        private void buttonAddPerson_Click(object sender, EventArgs e)
         {
-            //dataGridViewGrades.DataSource = null;
-            listOfGrades = listOfPeople[dataGridViewListOfPeople.SelectedRows[0].Index].listOfGrades;
-            dataGridViewGrades.DataSource = listOfGrades;
-               //var a = listOfPeople[dataGridViewListOfPeople.SelectedRows[0].Index].listOfGrades;
-               //  MessageBox.Show(a);
+            AddPerson addPerson = new AddPerson(this);
+            addPerson.Show();
+        }
+
+        private void toolStripMenuItemSave_Click(object sender, EventArgs e)
+        {
+            StreamWriter streamWriter = new StreamWriter("osoby.txt");
+            for (int i = 0; i < (dataGridViewListOfPeople.RowCount - 1); i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    streamWriter.Write(dataGridViewListOfPeople.Rows[i].Cells[j].Value + "|");
+                }
+                streamWriter.WriteLine();
+            }
+            streamWriter.Close();
+            MessageBox.Show("Zapisano!");
+        }
+
+        private void toolStripMenuItemLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader streamReader = new StreamReader("osoby.txt");
+                string content = streamReader.ReadToEnd();
+                int split = content.Split('\n').Length;
+                for (int i = 0; i < split - 1; i++)
+                {
+                    dataGridViewListOfPeople.Rows.Add(content.Split('n')[i].Split('|'));
+                }
+                streamReader.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Nie znaleziono pliku!");
+            }           
+                
+            }
         }
     }
-}
+
