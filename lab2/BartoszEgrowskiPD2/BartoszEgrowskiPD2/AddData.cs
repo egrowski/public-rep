@@ -13,12 +13,12 @@ namespace BartoszEgrowskiPD2
 
     public partial class AddData : Form
     {
-        private Book currentBook { get; set; }
-        private FormMain _parent { get; set; }
-        public AddData(FormMain parent)
+        private Book currentBook { get; set; } 
+        private FormMain parent { get; set; } //zmienna pomocnicza
+        public AddData(FormMain parentSecondary)
         {
-            _parent = parent;
-            currentBook = new Book();
+            parent = parentSecondary;
+            currentBook = new Book(); //konstruktor bieżącego wpisu
             InitializeComponent();
         }
 
@@ -33,8 +33,8 @@ namespace BartoszEgrowskiPD2
             currentBook.description = textBoxDescription.Text;
             currentBook.title = textBoxTitle.Text;
             currentBook.rating = comboBoxRating.Text;
-
-            _parent.AddBook(currentBook);
+            //ustawienie wartości bieżącego wpisu jako dane wpisane w odpowiednich polach
+            parent.AddBook(currentBook); //dodanie bieżącego wpisu do listy
             Close();
         }
 
@@ -43,7 +43,7 @@ namespace BartoszEgrowskiPD2
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                currentBook.CoverPath = openFileDialog.FileName;                
+                currentBook.CoverPath = openFileDialog.FileName;    //otwarcie pliku z wybranej lokalizacji                
             }
         }
     }
