@@ -1,0 +1,15 @@
+Zad 0: 
+Dokoñczyæ program z zajêæ tak by zawiera³ 4 tabele: 
+Computer, Employee, Service, Klient (dowolne informacje o kliencie i koniecznie ComputerId - po³¹czony relacj¹ z komputerem którego dotyczy). Aplikacja powinna zawieraæ 4 przyciski wyœwietlaj¹ce odpowiednio wszystkie dane z poszczególnych tabel. A tak¿e osobno przycisk wyœwietlaj¹ce serwisy o koszczie wy¿szym ni¿ wpisany w kontrolkê textBox obok.
+
+
+Zad1: 
+Stworzyæ bazê danych oraz aplikacjê które mog³yby byæ u¿ywane przez konkretn¹, wymyœlon¹ przez Pañstwa firmê (np pizzeria, szko³a, mechanik itp - Serwis komputerowy odpada :) ). Baza danych powinna zawieraæ minimum 12 tabel. Ka¿da tabela powinna byæ po³¹czona relacj¹ (nie mo¿na pozostawiaæ tabeli wolnej bez po³¹czeñ), mile widizane relacje wiele do wielu
+Aplikacja powinna mieæ jak najwiêcej mo¿liwoœci wywietlania danych. Konieczne jest u¿ycie zapytañ
+ - ... where ...
+ - ... join ... on (mile widziane wielokrotne)
+ - Select ... as ... , ....
+
+Zad 2(dodatkowe):
+Wprowadziæ do aplikacji mo¿liwoœæ dodawania, edycji i usuwania -
+- tak aby aplikacja spe³nia³a wszystkie za³o¿enia aplikacji CRUD;
