@@ -1,7 +1,0 @@
-Przesy³am connection stringa, poniewa¿ usun¹³em go ze swojego projektu:
-
-<connectionStrings>
-    <add name="EfDbContext" connectionString="Data Source=NAZWA_SERWERA;Initial Catalog=NAZWA_PROJEKTU;Integrated Security=True" providerName="System.Data.SqlClient" />
-  </connectionStrings>
-
-ca³y znacznik add trzeba w jednej linijce umieœciæ.
